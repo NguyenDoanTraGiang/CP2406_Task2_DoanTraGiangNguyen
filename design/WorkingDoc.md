@@ -21,3 +21,5 @@ The vehicla classs will be abstract, and have Model.Car, Model.Bubs and model.Mo
 A vehicle will be able to move using the move() method. A vehicle will mmove along a road, its speed depends on the speed limit of the that road. When the car is in the same position 
 as a traffic light it will check its state before moving. IF the light is red the car will not move, if the light is green the car will continue to move to the next road. When the vehicles position is equal to the end of a road and there is no connected road it will stop and be removed ending the simulation. The draw() method can determine how a vehicle is represented graphically.
 
+##### Model.Car
+The Car class will be a subclass of vehicle that represent an average size road vehicle. 
