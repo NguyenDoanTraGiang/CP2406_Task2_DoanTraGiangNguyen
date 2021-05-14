@@ -66,4 +66,9 @@ This class will generate all objects graphically within the program's panel. Veh
  - *scale* - the scale of objects drawn graphically.
 The class generate graphical representation of the objects within the main frame. In Editor mode, the user can click to place roads, rotate roads and define connections with dialog boxes within the New menu option.
 
+#### Model.SaveFile
+This class will save the simulator into a file
+
+
+
  
