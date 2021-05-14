@@ -10,13 +10,13 @@ These objects include:
 
 #### Model.Vehicle
 The vehicla classs will be abstract, and have Model.Car, Model.Bubs and model.Motorbbike as subclasses. Vehicle class has the following attribute:
-- *id* – an unique identifier that differenciate each vehicle.
-- *Length* – the physical length of the vehicle.
-- *Breadth* – the physical width of the vehicle, half the vehicle's length.
-- *Speed* – how far can the vehicle travel for each simulation turn
-- *Position* – where the vehicle is on the current road
-- *Current Model.Road* – the road the vehiccle is currently moving on
-- *Colour* - random color for each vehicle to differenciate between them.
+ - *id* – an unique identifier that differenciate each vehicle.
+ - *Length* – the physical length of the vehicle.
+ - *Breadth* – the physical width of the vehicle, half the vehicle's length.
+ - *Speed* – how far can the vehicle travel for each simulation turn
+ - *Position* – where the vehicle is on the current road
+ - *Current Model.Road* – the road the vehiccle is currently moving on
+ - *Colour* - random color for each vehicle to differenciate between them.
 
 A vehicle will be able to move using the move() method. A vehicle will move along a road, its speed depends on the speed limit of that road. When the car is in the same position 
 as a traffic light it will check its state before moving. IF the light is red the car will not move, if the light is green the car will continue to move to the next road. When the vehicles position is equal to the end of a road and there is no connected road it will stop and be removed ending the simulation. The draw() method can determine how a vehicle is represented graphically.
@@ -61,4 +61,9 @@ The traffic light operate using the operate() method. The light will randomly ch
  - *numberOfCycles* - the number of simulation cycles between spawns.
 
 This class will generate all objects graphically within the program's panel. Vehicle can be created for the simulator, but the type of the vehicle is randomly selected. The update rate of the simulator depends on user's input. The simulator will run within a period of time.
+
+#### View.EditorPanel
+ - *scale* - the scale of objects drawn graphically.
+The class generate graphical representation of the objects within the main frame. In Editor mode, the user can click to place roads, rotate roads and define connections with dialog boxes within the New menu option.
+
  
