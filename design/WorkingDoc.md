@@ -69,6 +69,7 @@ The class generate graphical representation of the objects within the main frame
 #### Model.SaveFile
 This class will save the simulator into a file
 
-
+#### Main
+This class will contain the main() method and will call the SimulationPanel and EditorPanel. User's input will be handled here.
 
  
