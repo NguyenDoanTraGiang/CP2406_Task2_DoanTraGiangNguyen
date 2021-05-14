@@ -22,4 +22,9 @@ A vehicle will be able to move using the move() method. A vehicle will mmove alo
 as a traffic light it will check its state before moving. IF the light is red the car will not move, if the light is green the car will continue to move to the next road. When the vehicles position is equal to the end of a road and there is no connected road it will stop and be removed ending the simulation. The draw() method can determine how a vehicle is represented graphically.
 
 ##### Model.Car
-The Car class will be a subclass of vehicle that represent an average size road vehicle. 
+The Car class will be a subclass of Vehicle class that represent an average size road vehicle. 
+
+##### Model.Bus
+The bus class will be a subclass of Vehicle class, describing a large road vehicle. It will inherit its attributes and behaviour 
+from Model.Car except its length will be defined as being three times that of the car’s length. 
+
