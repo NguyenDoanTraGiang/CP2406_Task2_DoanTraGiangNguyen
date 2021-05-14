@@ -25,6 +25,8 @@ as a traffic light it will check its state before moving. IF the light is red th
 The Car class will be a subclass of Vehicle class that represent an average size road vehicle. 
 
 ##### Model.Bus
-The bus class will be a subclass of Vehicle class, describing a large road vehicle. It will inherit its attributes and behaviour 
-from Model.Car except its length will be defined as being three times that of the car’s length. 
+The bus class will be a subclass of Vehicle class, represent a large road vehicle. It will inherit its attributes and behaviour from Model.Car except its length will be defined as being three times that of the car’s length. 
+
+##### Model.Motorbike
+The motorbike class will be a subclass of Vehicle class, represent a small road vehicle. It will inherit its attributes and behaviour Model.Car except its length will be defined as being half that of the car’s length.
 
