@@ -18,7 +18,7 @@ The vehicla classs will be abstract, and have Model.Car, Model.Bubs and model.Mo
 - *Current Model.Road* – the road the vehiccle is currently moving on
 - *Colour* - random color for each vehicle to differenciate between them.
 
-A vehicle will be able to move using the move() method. A vehicle will mmove along a road, its speed depends on the speed limit of the that road. When the car is in the same position 
+A vehicle will be able to move using the move() method. A vehicle will move along a road, its speed depends on the speed limit of that road. When the car is in the same position 
 as a traffic light it will check its state before moving. IF the light is red the car will not move, if the light is green the car will continue to move to the next road. When the vehicles position is equal to the end of a road and there is no connected road it will stop and be removed ending the simulation. The draw() method can determine how a vehicle is represented graphically.
 
 ##### Model.Car
@@ -30,3 +30,16 @@ The bus class will be a subclass of Vehicle class, represent a large road vehicl
 ##### Model.Motorbike
 The motorbike class will be a subclass of Vehicle class, represent a small road vehicle. It will inherit its attributes and behaviour Model.Car except its length will be defined as being half that of the car’s length.
 
+#### Model.Road
+The Road class is an object that represent a double lane road. The class has the following attributes:
+ - *id* - a unique identifier that will differentiate each road.
+ - *speedLimit* - the maximum speed that a vehicle on that road can travel at.
+ - *length* - the number of segments (physical length) that the road has.
+ - *startLocation* - the (x,y) coordiante that represent where the road begins
+ - *endLocation* - the (x,y) coordiante that represent where the road ends
+ - *lightsOnRoad* - all traffic lights that are on the end of this road
+ - *vehicleOnRoad* - all teh vehicle that are on the current road
+ - *connectedRoads* – all of the roads that the current road is physically attached to
+ - *orientation* - the direction of the road graphically
+
+This version of the program the speed will be constant and set to 1 (the car can only move a single potition each turn). The length of the road will depends on the user input. Roads can connect with each other in a simple interection. Cars will move along the road from the starting position to the end position of the road. Traffic lights can only be at the end position of each road. The road can be rotated graphically based on its orirentation.  
