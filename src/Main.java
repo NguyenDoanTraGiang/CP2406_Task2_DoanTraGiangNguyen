@@ -66,6 +66,7 @@ public class Main {
 
         JButton newMapBtn = new JButton("New");
         newMapBtn.addActionListener(e -> {
+            guideLine.setText("Hint: Click on yellow line to create new road. Click a road to create a new road. When satisfied with layout, press 'Load Map'");
             simulationPanel.setVisible(false);
             mainWindow.remove(editorPanel);
             editorPanel = new EditorPanel();
@@ -117,6 +118,9 @@ public class Main {
 //        simMenu.addMenuListener(simLis);
 
         JButton loadSimItem = new JButton("Load Map");
+        loadSimItem.addActionListener(e ->{
+            guideLine.setText("Now you can add more vehicle and start the simulation");
+        });
         westBar.add(loadSimItem);
 
         JButton spawnItem = new JButton("Add Vehicles");
