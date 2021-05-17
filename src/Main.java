@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class Main {
 
-    private static final int WINDOW_WIDTH = 1600;
-    private static final int WINDOW_HEIGHT = 1024;
+    private static final int WINDOW_WIDTH = 1200;
+    private static final int WINDOW_HEIGHT = 600;
     private static SimulationPanel simulationPanel = new SimulationPanel();
     private static EditorPanel editorPanel = new EditorPanel();
     private static final int SCALE = 8;
