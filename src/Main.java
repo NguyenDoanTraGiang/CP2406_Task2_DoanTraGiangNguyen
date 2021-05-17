@@ -61,7 +61,7 @@ public class Main {
 //        editMenu.addMenuListener(cityLis);
 //        westBar.add(editMenu);
         Container westBar = new Container();
-        westBar.setLayout(new GridLayout(5, 2));
+        westBar.setLayout(new GridLayout(15, 1, 0, 10));
         mainWindow.add(westBar, BorderLayout.WEST);
 
         JButton newMapBtn = new JButton("New");
