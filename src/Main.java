@@ -33,33 +33,11 @@ public class Main {
         JPanel guideLineBar = new JPanel();
         guideLineBar.setLayout(new GridLayout(1, 0));
         guideLineBar.setBorder(BorderFactory.createLoweredSoftBevelBorder());
-        JLabel guideLine = new JLabel("Hint: ");
+        JLabel guideLine = new JLabel("Hint: Press 'New' to create new map and begin customization");
         guideLineBar.add(guideLine);
         mainWindow.add(guideLineBar, BorderLayout.NORTH);
 
         //Menu bar:
-//        JMenuBar westBar = new JMenuBar();
-//        mainWindow.add(westBar, BorderLayout.WEST);
-
-//        //Editor Menu:
-//        JMenu editMenu = new JMenu("City Editor");
-//        MenuListener cityLis = new MenuListener() {
-//            @Override
-//            public void menuSelected(MenuEvent e) {
-//                modeLabel.setText("Mode: Editor");
-//                mainWindow.repaint();
-//            }
-//
-//            @Override
-//            public void menuDeselected(MenuEvent e) {
-//            }
-//
-//            @Override
-//            public void menuCanceled(MenuEvent e) {
-//            }
-//        };
-//        editMenu.addMenuListener(cityLis);
-//        westBar.add(editMenu);
         Container westBar = new Container();
         westBar.setLayout(new GridLayout(15, 1, 0, 10));
         mainWindow.add(westBar, BorderLayout.WEST);
@@ -79,43 +57,10 @@ public class Main {
             mainWindow.repaint();
         });
         westBar.add(newMapBtn);
-        //editMenu.add(newMapBtn);
-
-        JButton openMapBtn = new JButton("Open");
-        openMapBtn.addActionListener(e -> {
-        });
-        westBar.add(openMapBtn);
-        //editMenu.add(openMapBtn);
-
-        JButton saveMapBtn = new JButton("Save");
-        saveMapBtn.addActionListener(e -> {
-        });
-        westBar.add(saveMapBtn);
-        //editMenu.add(saveMapBtn);
 
         JButton exitProgramBtn = new JButton("Exit");
         exitProgramBtn.addActionListener(e -> System.exit(0));
         westBar.add(exitProgramBtn);
-        //editMenu.add(exitProgramBtn);
-
-        //Simulation Menu:
-//        JMenu simMenu = new JMenu("Simulation");
-//        MenuListener simLis = new MenuListener() {
-//            @Override
-//            public void menuSelected(MenuEvent e) {
-//                modeLabel.setText("Mode: Simulation");
-//                mainWindow.repaint();
-//            }
-//
-//            @Override
-//            public void menuDeselected(MenuEvent e) {
-//            }
-//
-//            @Override
-//            public void menuCanceled(MenuEvent e) {
-//            }
-//        };
-//        simMenu.addMenuListener(simLis);
 
         JButton loadSimItem = new JButton("Load Map");
         loadSimItem.addActionListener(e ->{
