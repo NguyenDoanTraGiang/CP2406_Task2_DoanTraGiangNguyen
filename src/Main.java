@@ -2,8 +2,6 @@ import View.EditorPanel;
 import View.SimulationPanel;
 
 import javax.swing.*;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 import java.awt.*;
 
 public class Main {
@@ -31,32 +29,43 @@ public class Main {
         bottomPanel.add(statusLabel);
         mainWindow.add(bottomPanel, BorderLayout.SOUTH);
 
+        // GuideLine Bar
+        JPanel guideLineBar = new JPanel();
+        guideLineBar.setLayout(new GridLayout(1, 0));
+        guideLineBar.setBorder(BorderFactory.createLoweredSoftBevelBorder());
+        JLabel guideLine = new JLabel("Hint: ");
+        guideLineBar.add(guideLine);
+        mainWindow.add(guideLineBar, BorderLayout.NORTH);
+
         //Menu bar:
-        JMenuBar menuBar = new JMenuBar();
-        mainWindow.add(menuBar, BorderLayout.NORTH);
+//        JMenuBar westBar = new JMenuBar();
+//        mainWindow.add(westBar, BorderLayout.WEST);
 
-        //Editor Menu:
-        JMenu editMenu = new JMenu("City Editor");
-        MenuListener cityLis = new MenuListener() {
-            @Override
-            public void menuSelected(MenuEvent e) {
-                modeLabel.setText("Mode: Editor");
-                mainWindow.repaint();
-            }
+//        //Editor Menu:
+//        JMenu editMenu = new JMenu("City Editor");
+//        MenuListener cityLis = new MenuListener() {
+//            @Override
+//            public void menuSelected(MenuEvent e) {
+//                modeLabel.setText("Mode: Editor");
+//                mainWindow.repaint();
+//            }
+//
+//            @Override
+//            public void menuDeselected(MenuEvent e) {
+//            }
+//
+//            @Override
+//            public void menuCanceled(MenuEvent e) {
+//            }
+//        };
+//        editMenu.addMenuListener(cityLis);
+//        westBar.add(editMenu);
+        Container westBar = new Container();
+        westBar.setLayout(new GridLayout(5, 2));
+        mainWindow.add(westBar, BorderLayout.WEST);
 
-            @Override
-            public void menuDeselected(MenuEvent e) {
-            }
-
-            @Override
-            public void menuCanceled(MenuEvent e) {
-            }
-        };
-        editMenu.addMenuListener(cityLis);
-        menuBar.add(editMenu);
-
-        JMenuItem newMapItem = new JMenuItem("New");
-        newMapItem.addActionListener(e -> {
+        JButton newMapBtn = new JButton("New");
+        newMapBtn.addActionListener(e -> {
             simulationPanel.setVisible(false);
             mainWindow.remove(editorPanel);
             editorPanel = new EditorPanel();
@@ -68,50 +77,53 @@ public class Main {
             mainWindow.validate();
             mainWindow.repaint();
         });
-        editMenu.add(newMapItem);
+        westBar.add(newMapBtn);
+        //editMenu.add(newMapBtn);
 
-        JMenuItem openMapItem = new JMenuItem("Open");
-        openMapItem.addActionListener(e -> {
+        JButton openMapBtn = new JButton("Open");
+        openMapBtn.addActionListener(e -> {
         });
-        editMenu.add(openMapItem);
+        westBar.add(openMapBtn);
+        //editMenu.add(openMapBtn);
 
-        JMenuItem saveMapItem = new JMenuItem("Save");
-        saveMapItem.addActionListener(e -> {
+        JButton saveMapBtn = new JButton("Save");
+        saveMapBtn.addActionListener(e -> {
         });
-        editMenu.add(saveMapItem);
+        westBar.add(saveMapBtn);
+        //editMenu.add(saveMapBtn);
 
-        JMenuItem exitProgramItem = new JMenuItem("Exit");
-        exitProgramItem.addActionListener(e -> System.exit(0));
-        editMenu.add(exitProgramItem);
+        JButton exitProgramBtn = new JButton("Exit");
+        exitProgramBtn.addActionListener(e -> System.exit(0));
+        westBar.add(exitProgramBtn);
+        //editMenu.add(exitProgramBtn);
 
         //Simulation Menu:
-        JMenu simMenu = new JMenu("Simulation");
-        MenuListener simLis = new MenuListener() {
-            @Override
-            public void menuSelected(MenuEvent e) {
-                modeLabel.setText("Mode: Simulation");
-                mainWindow.repaint();
-            }
+//        JMenu simMenu = new JMenu("Simulation");
+//        MenuListener simLis = new MenuListener() {
+//            @Override
+//            public void menuSelected(MenuEvent e) {
+//                modeLabel.setText("Mode: Simulation");
+//                mainWindow.repaint();
+//            }
+//
+//            @Override
+//            public void menuDeselected(MenuEvent e) {
+//            }
+//
+//            @Override
+//            public void menuCanceled(MenuEvent e) {
+//            }
+//        };
+//        simMenu.addMenuListener(simLis);
 
-            @Override
-            public void menuDeselected(MenuEvent e) {
-            }
+        JButton loadSimItem = new JButton("Load Map");
+        westBar.add(loadSimItem);
 
-            @Override
-            public void menuCanceled(MenuEvent e) {
-            }
-        };
-        simMenu.addMenuListener(simLis);
-
-
-        JMenuItem loadSimItem = new JMenuItem("Load Map");
-        simMenu.add(loadSimItem);
-
-        JMenuItem spawnItem = new JMenuItem("Add Vehicles");
+        JButton spawnItem = new JButton("Add Vehicles");
         spawnItem.setEnabled(false);
-        simMenu.add(spawnItem);
+        westBar.add(spawnItem);
 
-        JMenuItem startSimItem = new JMenuItem("Start");
+        JButton startSimItem = new JButton("Start");
         startSimItem.setEnabled(false);
         startSimItem.addActionListener(e -> {
             simulationPanel.simulate();
@@ -120,7 +132,7 @@ public class Main {
             mainWindow.validate();
             mainWindow.repaint();
         });
-        simMenu.add(startSimItem);
+        westBar.add(startSimItem);
 
         spawnItem.addActionListener(e -> {
             String spawnInput = JOptionPane.showInputDialog("Total number of Vehicles to spawn:");
@@ -131,7 +143,7 @@ public class Main {
             simulationPanel.setVehicleSpawnRate(spawnRate);
         });
 
-        JMenuItem stopSimItem = new JMenuItem("Stop");
+        JButton stopSimItem = new JButton("Stop");
         stopSimItem.setEnabled(false);
         stopSimItem.addActionListener(e -> {
             simulationPanel.setStopSim(true);
@@ -139,7 +151,7 @@ public class Main {
             mainWindow.validate();
             mainWindow.repaint();
         });
-        simMenu.add(stopSimItem);
+        westBar.add(stopSimItem);
 
         loadSimItem.addActionListener(e -> {
             statusLabel.setText("Status: Map Loaded!");
@@ -154,7 +166,7 @@ public class Main {
             mainWindow.repaint();
         });
 
-        JMenuItem setUpdateRateItem = new JMenuItem("Update Rate");
+        JButton setUpdateRateItem = new JButton("Update Rate");
         setUpdateRateItem.addActionListener(e -> {
             String updateRateInput = JOptionPane.showInputDialog("Enter the Update Rate of the Simulation");
             int updateRate = Integer.parseInt(updateRateInput);
@@ -163,9 +175,7 @@ public class Main {
             mainWindow.validate();
             mainWindow.repaint();
         });
-        simMenu.add(setUpdateRateItem);
-
-        menuBar.add(simMenu);
+        westBar.add(setUpdateRateItem);
 
         mainWindow.setLocationRelativeTo(null);
         mainWindow.setVisible(true);
